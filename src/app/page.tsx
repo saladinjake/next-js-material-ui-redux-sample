@@ -15,6 +15,11 @@ export default function Page() {
   // const pathname = usePathname();
   const key = Date.now()
   return (
+    <>
+    
     <LandingModule />
+    
+    
+    </>
     )
 }

@@ -8,6 +8,7 @@ import LoadingSkeleton from "./loading"
 
  
 import { usePathname } from 'next/navigation'
+import  { DetailInfo } from '@/app/components/shared/Footer'
 
 export const metadata: Metadata = {
   title: 'Next.js',
@@ -20,7 +21,7 @@ export default function Page() {
      {/* Include shared UI here e.g. a header or sidebar */}
     
      <Suspense fallback={<LoadingSkeleton />}>
-        <div>Build awesome stuff</div>
+               
      </Suspense>
     </LayoutLanding>
     )

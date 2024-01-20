@@ -112,7 +112,7 @@ export const MenuItems = ({
       >
         {links?.map(link => {
           return (
-            <MenuItem>
+            <MenuItem key={(new Date()).now}>
               <Typography textAlign="center" width={'100%'}>
                 {link?.name}
               </Typography>
@@ -181,7 +181,7 @@ export const PublicLinks = () => {
       {links?.map(linker => {
         if (linker.icon !== null) {
           return (
-            <Button href={linker?.url} sx={buttonStyles}>
+            <Button href={linker?.url} sx={buttonStyles} key={(new Date()).now}>
               <span
                 style={{
                   display: 'flex',
@@ -195,7 +195,7 @@ export const PublicLinks = () => {
           )
         }
         return (
-          <Button href={linker?.url} sx={buttonStyles}>
+          <Button href={linker?.url} sx={buttonStyles} key={(new Date()).now}>
             {linker?.name}
           </Button>
         )
