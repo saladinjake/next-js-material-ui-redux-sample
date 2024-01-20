@@ -55,7 +55,7 @@ const NavigationComponent = () => {
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           <AppLogo basic />
-
+          
           <MenuItems
             openCart={handleOpenToggle}
             openNavMenu={openNavMenu}

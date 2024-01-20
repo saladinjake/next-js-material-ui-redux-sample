@@ -18,6 +18,29 @@ import Toolbar from '@mui/material/Toolbar'
 import MenuItem from '@mui/material/MenuItem'
 import Modal from '@mui/material/Modal'
 
+export const BlockTile = ({
+  title,
+  color = '',
+  fontWeight = 300,
+  variant = 'subtitle2',
+  fontSize = '12px',
+  marginBottom = '30px',
+  textAlign = 'center',
+}) => {
+  return (
+    <Typography
+      variant={variant}
+      fontWeight={fontWeight}
+      textAlign={textAlign}
+      color={color}
+      fontSize={fontSize}
+      marginBottom={marginBottom}
+    >
+      {title}
+    </Typography>
+  )
+}
+
 export const AppLogo = ({ basic = false }) => {
   return (
     <>
@@ -77,16 +100,7 @@ export const MenuItems = ({
     { name: 'Pages', url: '#', icon: null },
   ]
   return (
-    <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
-      <IconButton
-        size="large"
-        aria-label="account of current user"
-        aria-controls="menu-appbar"
-        aria-haspopup="true"
-        onClick={openNavMenu}
-      >
-        <MenuIcon />
-      </IconButton>
+    <Box sx={{ flexGrow: 1, display: { xs: 'flex' } }}>
       <Menu
         id="menu-appbar"
         anchorEl={canOpen}
@@ -103,16 +117,23 @@ export const MenuItems = ({
         onClose={closeNavMenu}
         marginThreshold={0}
         sx={{
-          display: { xs: 'block', md: 'none' },
-          width: '100%',
-          maxWidth: '100%',
-          left: 0,
-          right: 0,
+          display: { xs: 'block', md: 'none', sm: 'block' },
+        }}
+        slotProps={{
+          paper: {
+            sx: {
+              width: '100%',
+
+              maxWidth: '100%',
+              left: 0,
+              right: 0,
+            },
+          },
         }}
       >
         {links?.map(link => {
           return (
-            <MenuItem key={(new Date()).now}>
+            <MenuItem key={new Date().now}>
               <Typography textAlign="center" width={'100%'}>
                 {link?.name}
               </Typography>
@@ -121,7 +142,7 @@ export const MenuItems = ({
         })}
 
         <MenuItem>
-          <Button sx={{ margin: '10px' }}>
+          <Button sx={{ margin: 'auto' }}>
             <span
               style={{
                 display: 'flex',
@@ -153,6 +174,48 @@ export const MenuItems = ({
           </Button>
         </MenuItem>
       </Menu>
+
+
+
+         <Box   sx={{
+          display: { xs: 'flex', md: 'none', sm: 'flex' },
+          flexDirection : 'row',
+          justifyContent :'flex-end',
+          position: { xs: 'absolute', md: 'relative' },
+          top: { xs: '5px' },
+          right: { xs: '10px' },
+        }}>
+       
+          <Button sx={{ margin: 'auto' }}>
+            <SearchOutlinedIcon />
+          </Button>
+      
+          <IconButton sx={{ margin: 'auto' }} onClick={openCart}>
+            <ShoppingCartOutlinedIcon />
+
+            <span> </span>
+          </IconButton>
+       
+         
+
+           <IconButton
+          size="large"
+          aria-label="account of current user"
+          aria-controls="menu-appbar"
+          aria-haspopup="true"
+          onClick={openNavMenu}
+          sx={{
+            flexGrow: 1,
+            display: { xs: 'flex', md: 'none' },
+          
+            
+          }}
+        >
+          <MenuIcon />
+        </IconButton>
+       </Box>
+
+   
     </Box>
   )
 }
@@ -181,7 +244,7 @@ export const PublicLinks = () => {
       {links?.map(linker => {
         if (linker.icon !== null) {
           return (
-            <Button href={linker?.url} sx={buttonStyles} key={(new Date()).now}>
+            <Button href={linker?.url} sx={buttonStyles} key={new Date().now}>
               <span
                 style={{
                   display: 'flex',
@@ -195,7 +258,7 @@ export const PublicLinks = () => {
           )
         }
         return (
-          <Button href={linker?.url} sx={buttonStyles} key={(new Date()).now}>
+          <Button href={linker?.url} sx={buttonStyles} key={new Date().now}>
             {linker?.name}
           </Button>
         )
