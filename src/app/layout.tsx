@@ -1,6 +1,6 @@
 import Box from '@mui/material/Box'
 import Navigation from '@/app/components/shared/Header'
-
+import AppThemeProvider from "@/app/theme"
 export const metadata = {
   title: 'Next Basket Tutorial',
   description: 'Next Basket Online Shopping',
@@ -19,8 +19,10 @@ export default function RootLayout({
       <link rel="icon" href="/assets/logo-sample.jpg" sizes="any" />
 
       <body>
+      <AppThemeProvider>
         <Navigation />
         <Box>{children}</Box>
+      </AppThemeProvider>
       </body>
     </html>
   )

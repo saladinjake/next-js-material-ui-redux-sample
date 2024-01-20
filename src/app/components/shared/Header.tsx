@@ -1,4 +1,4 @@
-"use client";
+'use client'
 import AppBar from '@mui/material/AppBar'
 import styled from 'styled-components'
 import Typography from '@mui/material/Typography'
@@ -8,16 +8,11 @@ import InstagramIcon from '@mui/icons-material/Instagram'
 import YouTubeIcon from '@mui/icons-material/YouTube'
 import FacebookIcon from '@mui/icons-material/Facebook'
 import TwitterIcon from '@mui/icons-material/Twitter'
-import headerStyles from "./header.module.css";
-import Box from "@mui/material/Box";
-import NavBar from "./Navbar"
 
-const Styles ={
+import Box from '@mui/material/Box'
+import NavBar from './Navbar'
 
-}
-
-
-const staticText ="Follow Us and get a chance to win 80% off"
+const staticText = 'Follow Us and get a chance to win 80% off'
 const PhoneNumber = () => {
 	return (
 		<Typography
@@ -50,9 +45,12 @@ const SocialMedia = () => {
 		<Typography variant="subtitle2" display="block" fontWeight={700}>
 			<p className="icon_helper">
 				Follow Us:
-				<InstagramIcon sx={{ 
-					marginLeft: '10px', 
-				marginRight: '10px' }} />{' '}
+				<InstagramIcon
+					sx={{
+						marginLeft: '10px',
+						marginRight: '10px',
+					}}
+				/>{' '}
 				<YouTubeIcon sx={{ marginRight: '10px' }} />{' '}
 				<FacebookIcon sx={{ marginRight: '10px' }} /> <TwitterIcon />
 			</p>
@@ -61,32 +59,43 @@ const SocialMedia = () => {
 }
 
 const Header = () => {
+
+
 	return (
 		<AppBar sx={{ boxShadow: 'none' }} position="fixed">
 			<Box
 				sx={{
-					display: { xs: 'none', md: 'flex',  lg:'flex'},
+					display: { xs: 'none', md: 'flex', lg: 'flex' },
 				}}
 			>
-			   <div className={headerStyles.application_header}>
-					<div className={headerStyles.flexify}>
+				<div style={{
+			display: 'flex',
+			backgroundColor: '#23856d',
+			color: '#fff',
+			padding: '16px 32px',
+			justifyContent: 'space-between',
+			width: '100%',
+			boxshadow: 'none',
+		}}>
+					<div style={{
+			display: 'flex',
+		}}>
 						<PhoneNumber />
 						<Email />
 					</div>
 					<div>
-						<Typography variant="subtitle2" display="block" fontWeight={700}>
+						<Typography display="block" fontWeight={700}  variant="subtitle2">
 							<p>{staticText}</p>
 						</Typography>
 					</div>
 					<div>
 						<SocialMedia />
 					</div>
-			  </div>
+				</div>
 			</Box>
-			<NavBar/>
+			<NavBar />
 		</AppBar>
 	)
 }
-
 
 export default Header
