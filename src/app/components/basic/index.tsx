@@ -175,30 +175,27 @@ export const MenuItems = ({
         </MenuItem>
       </Menu>
 
-
-
-         <Box   sx={{
+      <Box
+        sx={{
           display: { xs: 'flex', md: 'none', sm: 'flex' },
-          flexDirection : 'row',
-          justifyContent :'flex-end',
+          flexDirection: 'row',
+          justifyContent: 'flex-end',
           position: { xs: 'absolute', md: 'relative' },
           top: { xs: '5px' },
           right: { xs: '10px' },
-        }}>
-       
-          <Button sx={{ margin: 'auto' }}>
-            <SearchOutlinedIcon />
-          </Button>
-      
-          <IconButton sx={{ margin: 'auto' }} onClick={openCart}>
-            <ShoppingCartOutlinedIcon />
+        }}
+      >
+        <Button sx={{ margin: 'auto' }}>
+          <SearchOutlinedIcon />
+        </Button>
 
-            <span> </span>
-          </IconButton>
-       
-         
+        <IconButton sx={{ margin: 'auto' }} onClick={openCart}>
+          <ShoppingCartOutlinedIcon />
 
-           <IconButton
+          <span> </span>
+        </IconButton>
+
+        <IconButton
           size="large"
           aria-label="account of current user"
           aria-controls="menu-appbar"
@@ -207,15 +204,11 @@ export const MenuItems = ({
           sx={{
             flexGrow: 1,
             display: { xs: 'flex', md: 'none' },
-          
-            
           }}
         >
           <MenuIcon />
         </IconButton>
-       </Box>
-
-   
+      </Box>
     </Box>
   )
 }
