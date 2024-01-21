@@ -18,8 +18,12 @@ import Toolbar from '@mui/material/Toolbar'
 import MenuItem from '@mui/material/MenuItem'
 import Modal from '@mui/material/Modal'
 
-import ShoppingCart from "../shared/shoppingBag";
-import WishfulThinkerBoxes from "../shared/wishFairyList";
+import ShoppingCart from '../shared/shoppingBag'
+import WishfulThinkerBoxes from '../shared/wishFairyList'
+
+import { usePriceValue } from '@/app/lib/hooks'
+
+import ProductLink from '@mui/material/Link'
 
 export const BlockTile = ({
   title,
@@ -94,7 +98,7 @@ export const MenuItems = ({
   openModal,
   canOpen,
   cart,
-  wishlist
+  wishlist,
 }) => {
   const links = [
     { name: 'Home', url: '#', icon: null },
@@ -312,7 +316,21 @@ export const AuthLinks = ({ handleToggle, openWishList, cart, wishlist }) => {
   )
 }
 
-export const ShopingCartInformationModal = ({ closeCart, canOpen , cart}) => {
+const useCartComputation = cart => {
+  let quantity = 0
+  let price = 0
+  if (cart?.length > 0) {
+    cart.forEach((item: any) => {
+      quantity += item.quantity
+      price += item.price * item.quantity
+    })
+  }
+
+  return { price, quantity }
+}
+
+export const ShopingCartInformationModal = ({ closeCart, canOpen, cart }) => {
+  const cartComputation = useCartComputation(cart)
   const modalStyles = {
     position: 'absolute' as 'absolute',
     top: '50%',
@@ -347,15 +365,15 @@ export const ShopingCartInformationModal = ({ closeCart, canOpen , cart}) => {
             Shopping Cart
           </Typography>
           {cart?.map((item: any) => (
-              <ShoppingCart
-                key={item.id}
-                id={item.id}
-                image={item.image}
-                title={item.title}
-                price={item.price}
-                quantity={item.quantity}
-              />
-            ))}
+            <ShoppingCart
+              key={item.id}
+              id={item.id}
+              image={item.image}
+              title={item.title}
+              price={item.price}
+              quantity={item.quantity}
+            />
+          ))}
 
           <Box
             marginTop="24px"
@@ -385,8 +403,8 @@ export const ShopingCartInformationModal = ({ closeCart, canOpen , cart}) => {
                 fontSize="16px"
                 marginBottom={'14px'}
               >
-                SUBTOTAL
-                <strong></strong>
+                SUBTOTAL({cartComputation.totalQuantity}):
+                <strong>${cartComputation.totalPrice}</strong>
               </Typography>
             </Box>
           </Box>
@@ -396,7 +414,11 @@ export const ShopingCartInformationModal = ({ closeCart, canOpen , cart}) => {
   )
 }
 
-export const WishListInformationModal = ({ openWishList, closeWishList, wishlist }) => {
+export const WishListInformationModal = ({
+  openWishList,
+  closeWishList,
+  wishlist,
+}) => {
   const modalStyles = {
     position: 'absolute' as 'absolute',
     top: '50%',
@@ -430,53 +452,132 @@ export const WishListInformationModal = ({ openWishList, closeWishList, wishlist
             Wishlist
           </Typography>
           {wishlist?.map((item: any) => (
-              <WishfulThinkerBoxes
-                key={item.id}
-                id={item.id}
-                image={item.image}
-                title={item.title}
-              />
-            ))}
+            <WishfulThinkerBoxes
+              key={item.id}
+              id={item.id}
+              image={item.image}
+              title={item.title}
+            />
+          ))}
         </Box>
       </>
     </Modal>
   )
 }
 
-
-export const WishTemplate = ({children}) =>{
-  return (
-     <Box
-     gridTemplateColumns="repeat(12, 1fr)"
-        gap={1}
-        borderBottom={'1px solid #212121'}
-        padding="8px"
-        sx={{
-          display: { xs: 'block', md: 'grid' },
-        }}
-        
-      >
-      {children}
- </Box>
-  )
-}
-
-export const ShoppingCartWrapper = ({children}) =>{
+export const WishTemplate = ({ children }) => {
   return (
     <Box
-    gridTemplateColumns="repeat(12, 1fr)"
-        gap={1}
-        borderBottom={'1px solid #212121'}
-        borderRadius="10px"
-        padding="8px"
-        sx={{
-          display: { xs: 'block', md: 'grid' },
-          borderRadius: 1,
-        }}
-        
-      >
+      gridTemplateColumns="repeat(12, 1fr)"
+      gap={1}
+      borderBottom={'1px solid #212121'}
+      padding="8px"
+      sx={{
+        display: { xs: 'block', md: 'grid' },
+      }}
+    >
       {children}
-      </Box>
+    </Box>
   )
 }
 
+export const ShoppingCartWrapper = ({ children }) => {
+  return (
+    <Box
+      gridTemplateColumns="repeat(12, 1fr)"
+      gap={1}
+      borderBottom={'1px solid #212121'}
+      borderRadius="10px"
+      padding="8px"
+      sx={{
+        display: { xs: 'block', md: 'grid' },
+        borderRadius: 1,
+      }}
+    >
+      {children}
+    </Box>
+  )
+}
+
+export const ProductCard = ({ productDetail }) => {
+  const lossPrice = usePriceValue(
+    productDetail?.price,
+    productDetail?.discountPercentage
+  )
+  return (
+    <Box
+      key={productDetail.title}
+      gridColumn="span 2"
+      sx={{ height: '100%', margin: '8px' }}
+    >
+      <ProductLink href={`/products/${productDetail.id}`}>
+        <Card
+          sx={{
+            height: '100%',
+            boxShadow: 'none',
+            margin: 'auto',
+            maxWidth: 390,
+          }}
+        >
+          <CardActionArea>
+            <CardMedia
+              component="img"
+              height="240"
+              image={productDetail.images[0]}
+              alt={productDetail.description}
+            />
+            <CardContent
+              sx={{
+                display: 'flex',
+                flexDirection: 'column',
+                alignItems: 'center',
+                justifyContent: 'space-around',
+              }}
+            >
+              <BlockTile
+                variant="subtitle2"
+                fontWeight={700}
+                textAlign="center"
+                color="#252B42"
+                fontSize="15px"
+                title={productDetail.title}
+              />
+
+              <BlockTile
+                variant="subtitle2"
+                fontWeight={700}
+                textAlign="center"
+                color="#737373"
+                fontSize="14px"
+                marginTop="8px"
+                marginBottom="8px"
+                title={productDetail?.brand}
+              />
+
+              <Box sx={{ display: 'flex' }}>
+                <BlockTile
+                  variant="subtitle2"
+                  fontWeight={700}
+                  textAlign="center"
+                  color="#BDBDBD"
+                  fontSize="13px"
+                  marginRight="4px"
+                  title={productDetail?.price}
+                />
+
+                <BlockTile
+                  variant="subtitle2"
+                  fontWeight={700}
+                  textAlign="center"
+                  color="#23856D"
+                  fontSize="14px"
+                  title={lossPrice}
+                />
+              </Box>
+            </CardContent>
+          </CardActionArea>
+        </Card>
+      </ProductLink>
+    </Box>
+  )
+}

@@ -14,6 +14,7 @@ import OurService from '@/app/components/shared/Services'
 import IntroBlocks from '@/app/components/shared/IntroBlocks'
 import Posts from '@/app/components/shared/Posts'
 import Hero from '@/app/components/shared/Hero'
+import InfinitProducts  from "@/app/components/shared/Products"
 ;<Hero />
 export const metadata: Metadata = {
   title: 'Next.js',
@@ -33,6 +34,7 @@ export default function Page() {
         >
           <Hero />
         </Box>
+        <InfinitProducts  />
         <IntroBlocks />
         <OurService />
         <Posts />
