@@ -10,6 +10,7 @@ import Box from '@mui/material/Box'
 import { usePathname } from 'next/navigation'
 import { DetailInfo } from '@/app/components/shared/Footer'
 import SlateTalksAboutUs from '@/app/components/shared/SlateTalk'
+import OurService from '@/app/components/shared/Services'
 export const metadata: Metadata = {
   title: 'Next.js',
 }
@@ -21,6 +22,7 @@ export default function Page() {
       {/* Include shared UI here e.g. a header or sidebar */}
 
       <Suspense fallback={<LoadingSkeleton />}>
+        <OurService />
         <SlateTalksAboutUs />
       </Suspense>
     </LayoutLanding>
