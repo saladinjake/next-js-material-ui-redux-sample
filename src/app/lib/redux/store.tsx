@@ -8,8 +8,10 @@ import persistStore from 'redux-persist/lib/persistStore'
 import { persistReducer } from 'redux-persist'
 import storage from 'redux-persist/lib/storage'
 
+import { cartReducer  } from "./helpers/cartActionReducer"
+
 const rootReducer = combineReducers({
-    cart: null,
+    cart: cartReducer,
     wishlist: null,
     products: null,
 })
