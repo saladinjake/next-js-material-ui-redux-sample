@@ -1,10 +1,10 @@
 import { createSlice } from '@reduxjs/toolkit'
 
-type stateProp = {
+interface IStateProps= {
   cart: any
 }
 
-const initialState: stateProp  = {
+const initialState: IStateProps  = {
   //todo: add local storage
   cart: [],
 }
