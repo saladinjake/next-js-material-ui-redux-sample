@@ -1,7 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 
-interface IStateProps = {
+interface IStateProps {
     wishlist: any
 }
 
@@ -35,4 +35,4 @@ export const {
   addProductToWishlistAction,
   removeProductFromWishlistAction,
 } = wishlistBag.actions;
-export const wishlistReducer = wishlistBag.reducer;
+export const wishListReducer = wishlistBag.reducer;

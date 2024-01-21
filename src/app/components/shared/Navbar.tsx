@@ -28,6 +28,9 @@ import {
   WishListInformationModal,
 } from '@/app/components/basic'
 
+
+
+
 const NavigationComponent = () => {
   const [toggle, setToggle] = useState(false)
   const [openWish, setOpenWishList] = useState(false)
@@ -46,6 +49,9 @@ const NavigationComponent = () => {
   const closeNavMenu = () => {
     setCanOpen(false)
   }
+
+   const shoppingCart = useSelector((state: any) => state?.cart?.cart);
+  const wishList = useSelector((state: any) => state?.wishlist?.wishlist);
 
   return (
     <AppBar
@@ -82,10 +88,12 @@ const NavigationComponent = () => {
       <ShopingCartInformationModal
         closeCart={handleCloseToggle}
         canOpen={toggle}
+        cart={shoppingCart}
       />
       <WishListInformationModal
         openWishList={openWish}
-        closeWishList={closeWishList}
+        closeWishList={closeWishList ?? []}
+        wishlist={wishList?? []}
       />
     </AppBar>
   )

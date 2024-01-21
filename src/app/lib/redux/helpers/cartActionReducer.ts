@@ -1,6 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit'
 
-interface IStateProps= {
+interface IStateProps {
   cart: any
 }
 
@@ -9,7 +9,7 @@ const initialState: IStateProps  = {
   cart: [],
 }
 
-const cartReducer = {
+const cartReducers = {
   addToShoppingCartAction: (state, action) => {
     const shoppingBag = state?.cart?.find(
       (product: any) => product.id === action?.payload?.id
@@ -54,7 +54,7 @@ const cartReducer = {
 const shoppingCartOptions = {
   name: 'cart',
   initialState,
-  reducers: cartReducer,
+  reducers: cartReducers,
 }
 
 const shoppingCart = createSlice({ ...shoppingCartOptions  })

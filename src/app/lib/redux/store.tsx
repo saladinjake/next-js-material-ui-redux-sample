@@ -9,10 +9,10 @@ import { persistReducer } from 'redux-persist'
 import storage from 'redux-persist/lib/storage'
 
 import { cartReducer  } from "./helpers/cartActionReducer"
-import { wishListReducer  } from "./helpers/wishListActionReducer"
+import { wishListReducer  } from "./helpers/wishListActionReducers"
 
 const rootReducer = combineReducers({
-    cart: cartReducer,
+    cart: cartReducer ,
     wishlist: wishListReducer,
     products: null,
 })
