@@ -142,6 +142,17 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 
 /***/ }),
 
+/***/ "(ssr)/./node_modules/@mui/icons-material/ArrowForwardIos.js":
+/*!*************************************************************!*\
+  !*** ./node_modules/@mui/icons-material/ArrowForwardIos.js ***!
+  \*************************************************************/
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+"use strict";
+eval("/* __next_internal_client_entry_do_not_use__  cjs */ \nvar _interopRequireDefault = __webpack_require__(/*! @babel/runtime/helpers/interopRequireDefault */ \"(ssr)/./node_modules/@babel/runtime/helpers/interopRequireDefault.js\");\nObject.defineProperty(exports, \"__esModule\", ({\n    value: true\n}));\nexports[\"default\"] = void 0;\nvar _createSvgIcon = _interopRequireDefault(__webpack_require__(/*! ./utils/createSvgIcon */ \"(ssr)/./node_modules/@mui/icons-material/utils/createSvgIcon.js\"));\nvar _jsxRuntime = __webpack_require__(/*! react/jsx-runtime */ \"(ssr)/./node_modules/next/dist/server/future/route-modules/app-page/vendored/ssr/react-jsx-runtime.js\");\nvar _default = exports[\"default\"] = (0, _createSvgIcon.default)(/*#__PURE__*/ (0, _jsxRuntime.jsx)(\"path\", {\n    d: \"M6.23 20.23 8 22l10-10L8 2 6.23 3.77 14.46 12z\"\n}), \"ArrowForwardIos\");\n//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiKHNzcikvLi9ub2RlX21vZHVsZXMvQG11aS9pY29ucy1tYXRlcmlhbC9BcnJvd0ZvcndhcmRJb3MuanMiLCJtYXBwaW5ncyI6InFEQUFhO0FBR2IsSUFBSUEseUJBQXlCQyxtQkFBT0EsQ0FBQywwSEFBOEM7QUFDbkZDLDhDQUE2QztJQUMzQ0csT0FBTztBQUNULENBQUMsRUFBQztBQUNGRCxrQkFBZSxHQUFHLEtBQUs7QUFDdkIsSUFBSUcsaUJBQWlCUCx1QkFBdUJDLG1CQUFPQSxDQUFDLDhGQUF1QjtBQUMzRSxJQUFJTyxjQUFjUCxtQkFBT0EsQ0FBQyxnSUFBbUI7QUFDN0MsSUFBSVEsV0FBV0wsa0JBQWUsR0FBRyxDQUFDLEdBQUdHLGVBQWVELE9BQU8sRUFBZ0IsV0FBRixHQUFHLElBQUdFLFlBQVlFLEdBQUcsRUFBRSxRQUFRO0lBQ3RHQyxHQUFHO0FBQ0wsSUFBSSIsInNvdXJjZXMiOlsid2VicGFjazovL3NhbXBsZS11aS1leGFtcGxlLy4vbm9kZV9tb2R1bGVzL0BtdWkvaWNvbnMtbWF0ZXJpYWwvQXJyb3dGb3J3YXJkSW9zLmpzP2JiY2IiXSwic291cmNlc0NvbnRlbnQiOlsiXCJ1c2Ugc3RyaWN0XCI7XG5cInVzZSBjbGllbnRcIjtcblxudmFyIF9pbnRlcm9wUmVxdWlyZURlZmF1bHQgPSByZXF1aXJlKFwiQGJhYmVsL3J1bnRpbWUvaGVscGVycy9pbnRlcm9wUmVxdWlyZURlZmF1bHRcIik7XG5PYmplY3QuZGVmaW5lUHJvcGVydHkoZXhwb3J0cywgXCJfX2VzTW9kdWxlXCIsIHtcbiAgdmFsdWU6IHRydWVcbn0pO1xuZXhwb3J0cy5kZWZhdWx0ID0gdm9pZCAwO1xudmFyIF9jcmVhdGVTdmdJY29uID0gX2ludGVyb3BSZXF1aXJlRGVmYXVsdChyZXF1aXJlKFwiLi91dGlscy9jcmVhdGVTdmdJY29uXCIpKTtcbnZhciBfanN4UnVudGltZSA9IHJlcXVpcmUoXCJyZWFjdC9qc3gtcnVudGltZVwiKTtcbnZhciBfZGVmYXVsdCA9IGV4cG9ydHMuZGVmYXVsdCA9ICgwLCBfY3JlYXRlU3ZnSWNvbi5kZWZhdWx0KSggLyojX19QVVJFX18qLygwLCBfanN4UnVudGltZS5qc3gpKFwicGF0aFwiLCB7XG4gIGQ6IFwiTTYuMjMgMjAuMjMgOCAyMmwxMC0xMEw4IDIgNi4yMyAzLjc3IDE0LjQ2IDEyelwiXG59KSwgJ0Fycm93Rm9yd2FyZElvcycpOyJdLCJuYW1lcyI6WyJfaW50ZXJvcFJlcXVpcmVEZWZhdWx0IiwicmVxdWlyZSIsIk9iamVjdCIsImRlZmluZVByb3BlcnR5IiwiZXhwb3J0cyIsInZhbHVlIiwiZGVmYXVsdCIsIl9jcmVhdGVTdmdJY29uIiwiX2pzeFJ1bnRpbWUiLCJfZGVmYXVsdCIsImpzeCIsImQiXSwic291cmNlUm9vdCI6IiJ9\n//# sourceURL=webpack-internal:///(ssr)/./node_modules/@mui/icons-material/ArrowForwardIos.js\n");
+
+/***/ }),
+
 /***/ "(ssr)/./node_modules/@mui/icons-material/Facebook.js":
 /*!******************************************************!*\
   !*** ./node_modules/@mui/icons-material/Facebook.js ***!
@@ -2680,6 +2691,18 @@ eval("/**\n * @license React\n * react-is.development.js\n *\n * Copyright (c) F
 
 "use strict";
 eval("\nif (false) {} else {\n    module.exports = __webpack_require__(/*! ./cjs/react-is.development.js */ \"(ssr)/./node_modules/@mui/utils/node_modules/react-is/cjs/react-is.development.js\");\n}\n//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiKHNzcikvLi9ub2RlX21vZHVsZXMvQG11aS91dGlscy9ub2RlX21vZHVsZXMvcmVhY3QtaXMvaW5kZXguanMiLCJtYXBwaW5ncyI6IkFBQUE7QUFFQSxJQUFJQSxLQUF5QixFQUFjLEVBRTFDLE1BQU07SUFDTEMsOEpBQXlCO0FBQzNCIiwic291cmNlcyI6WyJ3ZWJwYWNrOi8vc2FtcGxlLXVpLWV4YW1wbGUvLi9ub2RlX21vZHVsZXMvQG11aS91dGlscy9ub2RlX21vZHVsZXMvcmVhY3QtaXMvaW5kZXguanM/MjIwYyJdLCJzb3VyY2VzQ29udGVudCI6WyIndXNlIHN0cmljdCc7XG5cbmlmIChwcm9jZXNzLmVudi5OT0RFX0VOViA9PT0gJ3Byb2R1Y3Rpb24nKSB7XG4gIG1vZHVsZS5leHBvcnRzID0gcmVxdWlyZSgnLi9janMvcmVhY3QtaXMucHJvZHVjdGlvbi5taW4uanMnKTtcbn0gZWxzZSB7XG4gIG1vZHVsZS5leHBvcnRzID0gcmVxdWlyZSgnLi9janMvcmVhY3QtaXMuZGV2ZWxvcG1lbnQuanMnKTtcbn1cbiJdLCJuYW1lcyI6WyJwcm9jZXNzIiwibW9kdWxlIiwiZXhwb3J0cyIsInJlcXVpcmUiXSwic291cmNlUm9vdCI6IiJ9\n//# sourceURL=webpack-internal:///(ssr)/./node_modules/@mui/utils/node_modules/react-is/index.js\n");
+
+/***/ }),
+
+/***/ "(rsc)/./node_modules/@mui/icons-material/ArrowForwardIos.js":
+/*!*************************************************************!*\
+  !*** ./node_modules/@mui/icons-material/ArrowForwardIos.js ***!
+  \*************************************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+/* __next_internal_client_entry_do_not_use__  cjs */ const { createProxy } = __webpack_require__(/*! next/dist/build/webpack/loaders/next-flight-loader/module-proxy */ "(rsc)/./node_modules/next/dist/build/webpack/loaders/next-flight-loader/module-proxy.js");
+module.exports = createProxy("/Users/victorjuwa/Desktop/Learning-Resource/Learn-mui/node_modules/@mui/icons-material/ArrowForwardIos.js");
+
 
 /***/ }),
 

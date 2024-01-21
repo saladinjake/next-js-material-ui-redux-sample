@@ -11,6 +11,9 @@ import { usePathname } from 'next/navigation'
 import { DetailInfo } from '@/app/components/shared/Footer'
 import SlateTalksAboutUs from '@/app/components/shared/SlateTalk'
 import OurService from '@/app/components/shared/Services'
+import IntroBlocks from  '@/app/components/shared/IntroBlocks'
+import Posts from  '@/app/components/shared/Posts'
+
 export const metadata: Metadata = {
   title: 'Next.js',
 }
@@ -22,7 +25,9 @@ export default function Page() {
       {/* Include shared UI here e.g. a header or sidebar */}
 
       <Suspense fallback={<LoadingSkeleton />}>
+        <IntroBlocks />
         <OurService />
+        <Posts />
         <SlateTalksAboutUs />
       </Suspense>
     </LayoutLanding>
