@@ -93,6 +93,8 @@ export const MenuItems = ({
   closeNavMenu,
   openModal,
   canOpen,
+  cart,
+  wishlist
 }) => {
   const links = [
     { name: 'Home', url: '#', icon: null },
@@ -167,13 +169,13 @@ export const MenuItems = ({
           <IconButton sx={{ margin: 'auto' }} onClick={openCart}>
             <ShoppingCartOutlinedIcon />
 
-            <span> </span>
+            <span>{cart.length > 0 ? cart.length : null} </span>
           </IconButton>
         </MenuItem>
         <MenuItem>
           <Button sx={{ margin: 'auto' }} onClick={openModal}>
             <FavoriteBorderOutlinedIcon />
-            <span> </span>
+            <span>{wishlist.length > 0 ? wishlist.length : null} </span>
           </Button>
         </MenuItem>
       </Menu>
@@ -195,7 +197,7 @@ export const MenuItems = ({
         <IconButton sx={{ margin: 'auto' }} onClick={openCart}>
           <ShoppingCartOutlinedIcon />
 
-          <span> </span>
+          <span>{cart.length > 0 ? cart.length : null} </span>
         </IconButton>
 
         <IconButton
@@ -263,7 +265,7 @@ export const PublicLinks = () => {
   )
 }
 
-export const AuthLinks = ({ handleToggle, openWishList }) => {
+export const AuthLinks = ({ handleToggle, openWishList, cart, wishlist }) => {
   const buttonStyles = {
     display: 'block',
     color: '#23A6F0',
@@ -299,12 +301,12 @@ export const AuthLinks = ({ handleToggle, openWishList }) => {
       </Button>
       <Button sx={buttonStyles} onClick={handleToggle}>
         <ShoppingCartOutlinedIcon />
-        <span> </span>
+        <span>{cart.length > 0 ? cart.length : null} </span>
       </Button>
 
       <Button sx={buttonStyles} onClick={openWishList}>
         <FavoriteBorderOutlinedIcon />
-        <span> </span>
+        <span> {wishlist.length > 0 ? wishlist.length : null}</span>
       </Button>
     </Box>
   )
