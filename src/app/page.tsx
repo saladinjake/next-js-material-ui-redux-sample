@@ -7,7 +7,7 @@ import LoadingSkeleton from './loading'
 
 import Navigation from '@/app/components/shared/Header'
 
-import LandingModule from '@/app/modules/landing'
+import LandingModule from '@/app/store/front'
 export const metadata: Metadata = {
   title: 'Next Basket Shopping Website',
 }

@@ -3,6 +3,7 @@ import Navigation from '@/app/components/shared/Header'
 import Footer, { DetailInfo } from '@/app/components/shared/Footer'
 import AppThemeProvider from '@/app/theme'
 import { StorageProviders } from "@/app/lib/redux/store"
+import "./css.css"
 export const metadata = {
   title: 'Next Basket Tutorial',
   description: 'Next Basket Online Shopping',
