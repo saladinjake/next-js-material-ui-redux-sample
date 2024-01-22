@@ -10,11 +10,12 @@ import storage from 'redux-persist/lib/storage'
 
 import { cartReducer  } from "./helpers/cartActionReducer"
 import { wishListReducer  } from "./helpers/wishListActionReducers"
+import  productReducers from "./helpers/infiniteProducts"
 
 const rootReducer = combineReducers({
     cart: cartReducer ,
     wishlist: wishListReducer,
-    products: null,
+    products:  productReducers,
 })
 
 const authPersistConfig = {

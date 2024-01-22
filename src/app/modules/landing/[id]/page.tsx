@@ -1,0 +1,193 @@
+"use client";
+import React, { useEffect, useState } from "react";
+import Tabs from "@mui/material/Tabs";
+import Tab from "@mui/material/Tab";
+import Box from "@mui/material/Box";
+
+
+import { BlockTile } from '@/app/components/basic'
+
+
+
+import { getProductDetail } from "@/app/lib/redux/helpers/infinitProducts";
+import { default as MUILink } from "@mui/material/Link";
+import Stack from "@mui/material/Stack";
+
+import { useDispatch, useSelector } from "react-redux";
+import { addToShoppingCartAction } from "@/app/lib/redux/helpers/cartActionReducer";
+import { addProductToWishlistAction } from "@/app/lib/redux/helpers/wishListActionReducers";
+
+import unsplashSales from "@/assets/unsplashCrossSale.png";
+
+import Footer from "@/app/components/Footer"
+
+
+
+
+
+import partner1 from "../../../../../public/assets/images/partner1.png";
+import partner2 from "../../../../../public/assets/images/partner2.png";
+import partner3 from "../../../../../public/assets/images/partner3.png";
+import partner4 from "../../../../../public/assets/images/partner4.png";
+import partner5 from "../../../../../public/assets/images/partner5.png";
+import partner6 from "../../../../../public/assets/images/partner6.png";
+
+
+
+
+
+const showCaseProduct = ({ params }: { params: { id: string } }) => {
+   const [showToast, setshowToast] = useState(false);
+  const [notificationMessage, setnotificationMessage] = useState("");
+
+  const dispatch = useDispatch();
+  const product = useSelector(
+    (state) => state.products.singleProductPayload
+  );
+
+  useEffect(() => {
+    dispatch(getProductDetail({ id: params.id }));
+  }, []);
+
+  const sendToCart = async (item: any, message: string) => {
+    const payload = {
+        id: item.id,
+        title: item.title,
+        image: item.image,
+        price: item.price,
+      }
+    await dispatch(
+      addToCart({
+        ...payload
+      })
+    );
+
+    setshowToast(true);
+    setnotificationMessage(message);
+  };
+
+  const sendToWishList = async (item: any, message: string) => {
+    const payload ={
+        id: item.id,
+        title: item.title,
+        image: item.image,
+        price: item.price,
+      }
+    await dispatch(
+      addToWishlist({..payload})
+    );
+
+    setshowToast(true);
+    setnotificationMessage(message);
+  };
+
+ 
+
+ 
+
+  const showToastModal= (message: string) => {
+    setshowToast(true);
+    setnotificationMessage(message);
+  };
+
+  const closeToastModal= (
+    event: React.SyntheticEvent | Event,
+    reason?: string
+  ) => {
+    if (reason === "clickaway") {
+      return;
+    }
+    setshowToast(false);
+  };
+
+  
+
+  
+  return (
+    <>
+       <BreadCrumbs />
+      <Box
+        sx={{
+          padding: { xs: "8px 14px", md: "8px 147px" },
+          backgroundColor: "#FAFAFA",
+        }}
+      >
+        <Box
+          sx={{
+            display: { xs: "block", md: "grid" },
+          }}
+          gridTemplateColumns="repeat(10, 1fr)"
+          gap={1}
+        >
+          <ProductSlides product={product}/>
+          <Box
+            gridColumn="span 5"
+            sx={{ height: "100%", margin: "8px", padding: "16px" }}
+            key={product.title}
+          >
+            <ProductDescription product={product} />
+            
+            
+            <ProductAction 
+              product={product}
+              addToCart={sendToCart}
+              addToWishList={sendToWishList}
+
+             />
+          </Box>
+        </Box>
+      </Box>
+      <Box
+        sx={{
+          padding: { xs: "8px 14px", md: "8px 147px" },
+        }}
+      >
+        <Box sx={{ padding: "24px" }}>
+          <Tabs aria-label="product info tabs" centered>
+            <Tab label="Descriptions" />
+            <Tab label="Additional Information" />
+            <Tab label="Reviews (0)" />
+          </Tabs>
+        </Box>
+        <Box
+          sx={{
+            display: { xs: "block", md: "grid" },
+          }}
+          gridTemplateColumns="repeat(10, 1fr)"
+          gap={1}
+          paddingTop={"44px"}
+          borderTop={"1px solid #ECECEC"}
+        >
+         <DummyProductInformation  />
+          <Box gridColumn="span 4" sx={{ height: "100%", margin: "8px" }}>
+            <Image
+              src={unsplashSales}
+              alt="Some text"
+              style={{ width: "100%", height: "auto" }}
+            />
+          </Box>
+        </Box>
+      </Box>
+       <Box
+        sx={{
+          padding: { xs: "8px 14px", md: "8px 100px" },
+          backgroundColor: "#FAFAFA",
+        }}
+      >
+      <BestSellers />
+        <InfiniteLoadShowcase  />
+        <Partners />
+      </Box>
+      <Footer  />
+      <ModalToast
+      showToast={showToast}
+       closeToastModal={closeToastModal}
+       showToastModal={showToastModal} 
+       notificationMessage={notificationMessage}
+
+       />
+    </>
+  );
+}
+
+export default showCaseProduct;

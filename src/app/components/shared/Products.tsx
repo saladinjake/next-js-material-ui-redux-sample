@@ -19,7 +19,7 @@ import { loadPaginatedInfiniteProducts, loadInfiniteProducts } from '@/app/api'
 
 const InfinitProducts = () => {
   const dispatch = useDispatch()
-  const infiniteLoads = useSelector(state => state?.products)
+  const infiniteLoads = useSelector(state => state?.products);
   const canLoadMore =
     infiniteLoads?.payload?.products?.length < infiniteLoads?.payload?.total
 
