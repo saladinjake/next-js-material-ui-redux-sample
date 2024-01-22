@@ -88,7 +88,7 @@ export const AppLogo = ({ basic = false }) => {
             mr: 2,
             display: { xs: 'none', md: 'flex' },
           }}
-          className="color-main"
+          className="base-pallet"
         >
           Bandage
         </Typography>
@@ -106,7 +106,7 @@ export const AppLogo = ({ basic = false }) => {
             letterSpacing: '.3rem',
             textDecoration: 'none',
           }}
-          className="color-main"
+          className="base-pallet"
         >
           Bandage
         </Typography>
@@ -432,8 +432,8 @@ export const ShopingCartInformationModal = ({ closeCart, canOpen, cart }) => {
                 fontSize="16px"
                 marginBottom={'14px'}
               >
-                SUBTOTAL({cartComputation.totalQuantity}):
-                <strong>${cartComputation.totalPrice}</strong>
+                SUBTOTAL({cartComputation.quantity}):
+                <strong>${cartComputation.price}</strong>
               </Typography>
             </Box>
           </Box>
@@ -783,10 +783,10 @@ export const ProductDescription = ({ product }) => {
         paddingTop="29px"
         marginTop="140px"
       >
-        <div className="ellipse bg-blue"></div>
-        <div className="ellipse bg-green"></div>
-        <div className="ellipse bg-orange"></div>
-        <div className="ellipse bg-black"></div>
+        <div className="curve-section navy-blue"></div>
+        <div className="curve-section aqua-green"></div>
+        <div className="curve-section lime-orange"></div>
+        <div className="curve-section black"></div>
       </Box>
     </>
   )
