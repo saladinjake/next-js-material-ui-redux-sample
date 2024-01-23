@@ -1,3 +1,5 @@
 {
-  "/page": "app/page.js"
+  "/_not-found": "app/_not-found.js",
+  "/page": "app/page.js",
+  "/store/front/[id]/page": "app/store/front/[id]/page.js"
 }
