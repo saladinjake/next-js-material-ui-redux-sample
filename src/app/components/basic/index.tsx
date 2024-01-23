@@ -151,14 +151,14 @@ export const MenuItems = ({
   cart,
   wishlist,
 }: IMenuItems) => {
-  const links = [
+  const links = Array.from( new  Set( [
     { name: 'Home', url: '#', icon: null },
     { name: 'Shop', url: '#', icon: null },
     { name: 'About', url: '#', icon: null },
     { name: 'Blog', url: '#', icon: null },
     { name: 'Contact', url: '#', icon: null },
     { name: 'Pages', url: '#', icon: null },
-  ]
+  ]))
   return (
     <Box sx={{ flexGrow: 1, display: { xs: 'flex' } }}>
       <Menu
