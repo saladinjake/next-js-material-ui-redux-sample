@@ -75,7 +75,7 @@ const Header = () => {
 			padding: '16px 32px',
 			justifyContent: 'space-between',
 			width: '100%',
-			boxshadow: 'none',
+			boxShadow: 'none'
 		}}>
 					<div style={{
 			display: 'flex',

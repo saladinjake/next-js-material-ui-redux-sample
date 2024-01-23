@@ -49,7 +49,7 @@ export const FacebookSvg = ({ ...props }) => {
 };
 
 
-const TwitterSvg = ({ ...props }) => {
+export const TwitterSvg = ({ ...props }) => {
   return (
     <svg
       width="25"

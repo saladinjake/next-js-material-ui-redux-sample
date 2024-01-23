@@ -13,7 +13,7 @@ import List from '@mui/material/List'
 import { FacebookSvg, InstagramSvg, TwitterSvg } from '@/app/components/svg/svg'
 import { BlockTile } from "../basic"
 
-const InfoText = ({ text }) => (
+const InfoText = ({ text ="" }) => (
   <Box
     sx={{
       minHeight: '74px',
@@ -28,7 +28,7 @@ const InfoText = ({ text }) => (
     <BlockTile
       variant="subtitle2"
       fontWeight={700}
-      textAlign="left"
+      textAlign="left"  
       color="#737373"
       fontSize="14px"
       title={text}
@@ -36,7 +36,7 @@ const InfoText = ({ text }) => (
   </Box>
 )
 
-const LogoSection = ({ height }) => {
+const LogoSection = ({ height="10px" }) => {
   const logoSectionStyle = {
     minHeight: height,
     display: 'flex',
@@ -76,8 +76,12 @@ const LogoSection = ({ height }) => {
 
 const SitemapDrawer = ({
   title = 'Company Info',
-  linksArr,
+  linksArr=[],
   gridColumn = 'span 2',
+}: {
+  linksArr?: any;
+  title?:string;
+  gridColumn?:string;
 }) => {
   return (
     <Box gridColumn={gridColumn} sx={{ height: '100%' }}>
@@ -91,9 +95,9 @@ const SitemapDrawer = ({
         {title}
       </Typography>
       <List dense={false}>
-        {linksArr?.map(item => {
+        {linksArr?.map( (item: any) => {
           return (
-            <ListItem key={new Date().now} sx={{ paddingLeft: 0 }}>
+            <ListItem key={(new Date()).getMilliseconds()} sx={{ paddingLeft: 0 }}>
               <BlockTile
                 textAlign="left"
                 color="#737373"

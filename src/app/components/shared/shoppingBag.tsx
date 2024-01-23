@@ -19,11 +19,11 @@ import Image from 'next/image'
 import { BlockTile , ShoppingCartWrapper} from '../basic'
 
 interface ICartProps {
-  image: string
-  title: string
-  price: string
-  quantity: number
-  id: string | number
+  image: string;
+  title: string;
+  price: string;
+  quantity: number;
+  id: any;
 }
 
 
@@ -35,7 +35,7 @@ const windowShopper = ({
   price,
   quantity = 0,
 }: ICartProps) => {
-  const dispatch = useDispatch()
+  const dispatch = useDispatch<any>()
 
   const handleIncrementDispatch = () => dispatch(increaseProductQuantityAction(id))
   const handleDecrementDispatch = () => dispatch(decreaseProductQuantityAction(id))
@@ -86,7 +86,7 @@ const windowShopper = ({
               color="#252B42"
               fontSize="16px"
               margin={'12px'}
-              quantity={quantity}
+              title={"" +   quantity}
             />
 
             <IconButton

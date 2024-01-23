@@ -37,15 +37,17 @@ const NavigationComponent = () => {
   const openWishList = () => setOpenWishList(true)
   const closeWishList = () => setOpenWishList(false)
 
-  const [canOpen, setCanOpen] = React.useState<boolean | HTMLElement>(false)
+  const [canOpen, setCanOpen] = React.useState<null | HTMLElement>(null)
 
   const openNavMenu = (event: React.MouseEvent<HTMLElement>) => {
     setCanOpen(event.currentTarget)
   }
 
   const closeNavMenu = () => {
-    setCanOpen(false)
+    setCanOpen(null)
   }
+
+
 
   const shoppingCart = useSelector((state: any) => state?.cart?.cart)
   const wishList = useSelector((state: any) => state?.wishlist?.wishlist)
@@ -68,7 +70,7 @@ const NavigationComponent = () => {
             cart={shoppingCart}
             wishlist={wishList}
           />
-          <AppLogo />
+          <AppLogo basic={false}/>
 
           <Box
             sx={{
@@ -79,7 +81,8 @@ const NavigationComponent = () => {
             }}
           >
             <PublicLinks />
-            <AuthLinks cart={shoppingCart} wishlist={wishList} />
+            <AuthLinks cart={shoppingCart} handleToggle={handleOpenToggle} openWishList={openWishList}
+            wishlist={wishList} />
           </Box>
         </Toolbar>
       </Container>

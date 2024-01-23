@@ -1,6 +1,6 @@
 'use client'
 
-import { Provider } from 'react-redux'
+import { Provider, useDispatch } from 'react-redux'
 import { PersistGate } from 'redux-persist/integration/react'
 
 import { configureStore, combineReducers } from '@reduxjs/toolkit'
@@ -49,3 +49,9 @@ export const   StorageProviders = ({ children }: { children: any }) => {
         </Provider>
     )
 }
+
+
+// export type  ProductState = ReturnType<typeof store.getState>;
+// export type ProductDispatch =  typeof store.dispatch;
+// export  type ReduxState = ReturnType<typeof rootReducer>
+// // export const useAppDispatch  = (arg: any) =>   useDispatch<ProductDispatch>(arg)

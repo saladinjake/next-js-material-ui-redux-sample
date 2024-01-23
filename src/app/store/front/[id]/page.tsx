@@ -27,17 +27,13 @@ import { useDispatch, useSelector } from "react-redux";
 import { addToShoppingCartAction } from "@/app/lib/redux/helpers/cartActionReducer";
 import { addProductToWishlistAction } from "@/app/lib/redux/helpers/wishListActionReducers";
 import Image from 'next/image'
+// import {
+//   AppDispatch,
+//   RootState,
+//   // useAppDispatch
+// } from "@/app/lib/redux/store"
 
 import FlatProducts from "@/app/components/shared/FlatProducts"
-
-
-
-
-
-
-
-
-
 
 
 
@@ -46,9 +42,9 @@ const showCaseProduct = ({ params }: { params: { id: string } }) => {
    const [showToast, setshowToast] = useState(false);
   const [notificationMessage, setnotificationMessage] = useState("");
 
-  const dispatch = useDispatch();
+  const dispatch = useDispatch<any>();
   const product = useSelector(
-    (state) => state.products.singleProductPayload
+    (state: any) => state.products.singleProductPayload
   );
 
   useEffect(() => {
@@ -56,16 +52,14 @@ const showCaseProduct = ({ params }: { params: { id: string } }) => {
   }, []);
 
   const sendToCart = async (item: any, message: string) => {
-    const payload = {
+   
+    await dispatch(
+      addToShoppingCartAction({
         id: item.id,
         title: item.title,
         image: item.image,
         price: item.price,
-      }
-    await dispatch(
-      addToShoppingCartAction({
-        ...payload
-      })
+      }) 
     );
 
     setshowToast(true);
@@ -73,14 +67,14 @@ const showCaseProduct = ({ params }: { params: { id: string } }) => {
   };
 
   const sendToWishList = async (item: any, message: string) => {
-    const payload ={
+    
+    await dispatch(
+      addProductToWishlistAction({
         id: item.id,
         title: item.title,
         image: item.image,
         price: item.price,
-      }
-    await dispatch(
-      addProductToWishlistAction({...payload})
+      }) 
     );
 
     setshowToast(true);

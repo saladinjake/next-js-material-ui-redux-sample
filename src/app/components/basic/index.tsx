@@ -49,14 +49,21 @@ import partner4 from '../../../../public/assets/images/partner4.png'
 import partner5 from '../../../../public/assets/images/partner5.png'
 import partner6 from '../../../../public/assets/images/partner6.png'
 
+
+
+
 export const BlockTile = ({
-  title,
-  color = '',
+  title ='sample',
+  color = '#eaeaea',
   fontWeight = 300,
-  variant = 'subtitle2',
+  variant = 'subtitle2' as 'subtitle2' ,
   fontSize = '12px',
-  marginBottom = '30px',
-  textAlign = 'center',
+  marginBottom = '0px',
+  marginTop ="0px",
+  marginLeft="0px",
+  marginRight="0px",
+  textAlign = 'center' as 'center' | 'left',
+   margin="1px",
 }) => {
   return (
     <Typography
@@ -66,13 +73,22 @@ export const BlockTile = ({
       color={color}
       fontSize={fontSize}
       marginBottom={marginBottom}
+      marginTop={marginTop}
+      marginRight={marginRight}
+      marginLeft={marginLeft}
+      margin={margin}
     >
       {title}
     </Typography>
   )
 }
 
-export const AppLogo = ({ basic = false }) => {
+
+interface IAppLogo {
+  basic: boolean
+}
+
+export const AppLogo = ({ basic = false }: IAppLogo) => {
   return (
     <>
       {basic ? (
@@ -115,6 +131,17 @@ export const AppLogo = ({ basic = false }) => {
   )
 }
 
+
+interface IMenuItems {
+  openCart: any;
+  openNavMenu: any;
+  closeNavMenu: any;
+  openModal: any;
+  canOpen: any;
+  cart: any;
+  wishlist: any;
+}
+
 export const MenuItems = ({
   openCart,
   openNavMenu,
@@ -123,7 +150,7 @@ export const MenuItems = ({
   canOpen,
   cart,
   wishlist,
-}) => {
+}: IMenuItems) => {
   const links = [
     { name: 'Home', url: '#', icon: null },
     { name: 'Shop', url: '#', icon: null },
@@ -166,7 +193,7 @@ export const MenuItems = ({
       >
         {links?.map(link => {
           return (
-            <MenuItem key={new Date().now}>
+            <MenuItem key={(new Date()).getMilliseconds()}>
               <Typography textAlign="center" width={'100%'}>
                 {link?.name}
               </Typography>
@@ -275,7 +302,7 @@ export const PublicLinks = () => {
       {links?.map(linker => {
         if (linker.icon !== null) {
           return (
-            <Button href={linker?.url} sx={buttonStyles} key={new Date().now}>
+            <Button href={linker?.url} sx={buttonStyles} key={(new Date()).getMilliseconds()}>
               <span
                 style={{
                   display: 'flex',
@@ -289,7 +316,7 @@ export const PublicLinks = () => {
           )
         }
         return (
-          <Button href={linker?.url} sx={buttonStyles} key={new Date().now}>
+          <Button href={linker?.url} sx={buttonStyles} key={(new Date()).getMilliseconds()}>
             {linker?.name}
           </Button>
         )
@@ -298,7 +325,7 @@ export const PublicLinks = () => {
   )
 }
 
-export const AuthLinks = ({ handleToggle, openWishList, cart, wishlist }) => {
+export const AuthLinks = ({ handleToggle, openWishList, cart, wishlist }: { handleToggle:any; openWishList: any;cart:any; wishlist: any }) => {
   const buttonStyles = {
     display: 'block',
     color: '#23A6F0',
@@ -345,7 +372,7 @@ export const AuthLinks = ({ handleToggle, openWishList, cart, wishlist }) => {
   )
 }
 
-const useCartComputation = cart => {
+const useCartComputation = (cart: any) => {
   let quantity = 0
   let price = 0
   if (cart?.length > 0) {
@@ -358,7 +385,7 @@ const useCartComputation = cart => {
   return { price, quantity }
 }
 
-export const ShopingCartInformationModal = ({ closeCart, canOpen, cart }) => {
+export const ShopingCartInformationModal = ({ closeCart, canOpen, cart }:{closeCart:any; canOpen:any; cart:any}) => {
   const cartComputation = useCartComputation(cart)
   const modalStyles = {
     position: 'absolute' as 'absolute',
@@ -447,6 +474,10 @@ export const WishListInformationModal = ({
   openWishList,
   closeWishList,
   wishlist,
+}:{
+  openWishList:any;
+  closeWishList:any;
+  wishlist:any;
 }) => {
   const modalStyles = {
     position: 'absolute' as 'absolute',
@@ -494,7 +525,7 @@ export const WishListInformationModal = ({
   )
 }
 
-export const WishTemplate = ({ children }) => {
+export const WishTemplate = ({ children }: {children: any}) => {
   return (
     <Box
       gridTemplateColumns="repeat(12, 1fr)"
@@ -510,7 +541,7 @@ export const WishTemplate = ({ children }) => {
   )
 }
 
-export const ShoppingCartWrapper = ({ children }) => {
+export const ShoppingCartWrapper = ({ children }: {children: any}) => {
   return (
     <Box
       gridTemplateColumns="repeat(12, 1fr)"
@@ -528,7 +559,7 @@ export const ShoppingCartWrapper = ({ children }) => {
   )
 }
 
-export const ProductCard = ({ productDetail }) => {
+export const ProductCard = ({ productDetail }: { productDetail : any}) => {
   const lossPrice = usePriceValue(
     productDetail?.price,
     productDetail?.discountPercentage
@@ -671,7 +702,7 @@ export const BreadCrumbs = () => {
   )
 }
 
-export const ProductSlides = ({ product, id }) => {
+export const ProductSlides = ({ product, id }: { product: any; id: any }) => {
   const hasProductLoaded = product?.images && id
   const productImages = product?.images
   const thumbs = product?.thumbnail
@@ -724,7 +755,7 @@ export const ProductSlides = ({ product, id }) => {
   )
 }
 
-export const ProductDescription = ({ product }) => {
+export const ProductDescription = ({ product }: { product: any }) => {
   return (
     <>
       <Typography
@@ -792,7 +823,7 @@ export const ProductDescription = ({ product }) => {
   )
 }
 
-export const ProductAction = ({ product, addToCart, addToWishList }) => {
+export const ProductAction = ({ product, addToCart, addToWishList }: { product:any; addToCart:any; addToWishList: any }) => {
   const payload = {
     id: product.id,
     title: product.title,
@@ -917,6 +948,11 @@ export const ModalToast = ({
   closeToastModal,
   showToastModal,
   notificationMessage,
+}: {
+  showToast:any;
+  closeToastModal:any;
+  showToastModal:any;
+  notificationMessage:any
 }) => {
   return (
     <Snackbar

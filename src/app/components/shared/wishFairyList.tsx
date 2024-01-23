@@ -13,13 +13,13 @@ import Image from 'next/image'
 import { BlockTile, WishTemplate } from '../basic'
 
 interface IWished {
-  id: string | number
-  image: string
-  title: string
+  id: any;
+  image: string;
+  title: string;
 }
 
 const WishFairyBag = ({ id, image, title }: IWished) => {
-  const dispatch = useDispatch()
+  const dispatch = useDispatch<any>()
 
   const handleDispatch = () => dispatch(removeProductFromWishlistAction(id))
   return (

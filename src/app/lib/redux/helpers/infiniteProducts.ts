@@ -30,29 +30,29 @@ export const productsSlice = createSlice({
     name: 'productsData',
     initialState,
     reducers: {},
-    extraReducers: (ThunkBuildCase) => {
-        ThunkBuildCase.addCase(loadInfiniteProducts.pending, state => {
+    extraReducers: (ThunkBuildCase: any) => {
+        ThunkBuildCase.addCase(loadInfiniteProducts.pending, (state:any) => {
             state.loading = true
         });
-        ThunkBuildCase.addCase(loadInfiniteProducts.fulfilled, (state, action) => {
+        ThunkBuildCase.addCase(loadInfiniteProducts.fulfilled, (state: any, action: any) => {
             state.loading = false
             state.payload.total = action.payload.total
             state.payload.products = action.payload.products
         });
-        ThunkBuildCase.addCase(loadInfiniteProducts.rejected, (state, action) => {
+        ThunkBuildCase.addCase(loadInfiniteProducts.rejected, (state: any, action: any) => {
             state.loading = false
             state.payload = {}
             state.error = action.error
         });
 
-         ThunkBuildCase.addCase(getProductDetail.pending, state => {
+         ThunkBuildCase.addCase(getProductDetail.pending, (state: any) => {
             state.loading = true
         });
-        ThunkBuildCase.addCase(getProductDetail.fulfilled, (state, action) => {
+        ThunkBuildCase.addCase(getProductDetail.fulfilled, (state: any, action: any) => {
             state.loading = false
             state.singleProductPayload = action.payload
         });
-        ThunkBuildCase.addCase(getProductDetail.rejected, (state, action) => {
+        ThunkBuildCase.addCase(getProductDetail.rejected, (state: any, action: any) => {
             state.loading = false
             state.singleProductPayload = {}
             state.error = action.error
@@ -60,15 +60,15 @@ export const productsSlice = createSlice({
 
 
 
-        ThunkBuildCase.addCase(loadPaginatedInfiniteProducts.pending, state => {
+        ThunkBuildCase.addCase(loadPaginatedInfiniteProducts.pending, (state:any) => {
             state.loading = true
         });
-        ThunkBuildCase.addCase(loadPaginatedInfiniteProducts.fulfilled, (state, action) => {
+        ThunkBuildCase.addCase(loadPaginatedInfiniteProducts.fulfilled, (state: any, action: any) => {
             state.loading = false
             state.payload.total = action.payload.total
             state.payload.products = [...state.payload.products, ...action.payload.products]
         });
-        ThunkBuildCase.addCase(loadPaginatedInfiniteProducts.rejected, (state, action) => {
+        ThunkBuildCase.addCase(loadPaginatedInfiniteProducts.rejected, (state: any, action: any) => {
             state.loading = false
             state.payload = {}
             state.error = action.error

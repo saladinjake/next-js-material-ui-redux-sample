@@ -1,4 +1,4 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice , PayloadAction} from '@reduxjs/toolkit'
 
 
 interface IStateProps {
@@ -10,25 +10,25 @@ const initialState: IStateProps= {
 }
 
 
-const reducerWishList = {
-    addProductToWishlistAction: (state, action) => {
+
+
+
+const wishlistBag = createSlice({
+  initialState,
+  name: 'wishlist',
+  reducers:{
+    addProductToWishlistAction: (state: any, action:PayloadAction<any>) => {
       const wishBag = state.wishlist.find((product:any) => product.id === action.payload.id);
       if (!wishBag) {
         state.wishlist.push({ ...action.payload});
       }
     },
-    removeProductFromWishlistAction: (state, action) => {
+    removeProductFromWishlistAction: (state: any, action: PayloadAction<any>) => {
       const products = state.wishlist.filter((prod:any) => prod.id !== action.payload);
       state.wishlist = products;
     },
-  }
-
-const options ={
-  initialState,
-  name: 'wishlist',
-  reducers:reducerWishList,
-}
-const wishlistBag = createSlice({...options});
+  },
+});
 
 
 export const {

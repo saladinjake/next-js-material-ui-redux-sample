@@ -1,9 +1,8 @@
 import LayoutLanding from './layout'
-import Template from './template'
+
 import { Metadata } from 'next'
 import Link from 'next/link'
 import { Suspense } from 'react'
-import LoadingSkeleton from './loading'
 
 import Navigation from '@/app/components/shared/Header'
 

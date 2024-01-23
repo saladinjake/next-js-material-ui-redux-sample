@@ -18,8 +18,8 @@ import { useDispatch, useSelector } from 'react-redux'
 import { loadPaginatedInfiniteProducts, loadInfiniteProducts } from '@/app/api'
 
 const FlatProducts = () => {
-  const dispatch = useDispatch()
-  const infiniteLoads = useSelector(state => state?.products);
+  const dispatch = useDispatch<any>()
+  const infiniteLoads = useSelector( (state:any) => state?.products);
   const canLoadMore =
     infiniteLoads?.payload?.products?.length < infiniteLoads?.payload?.total
 
@@ -46,7 +46,7 @@ const FlatProducts = () => {
           gridTemplateColumns="repeat(10, 1fr)"
           gap={1}
         >
-          {infiniteLoads?.payload?.products?.map(productDetail => (
+          {infiniteLoads?.payload?.products?.map( (productDetail: any) => (
             <ProductCard productDetail={productDetail} />
           ))}
         </Box>
