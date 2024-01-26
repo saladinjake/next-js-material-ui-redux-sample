@@ -1,0 +1,70 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+/*colrs*/
+.navy-blue {
+  background-color: #23a6f0;
+}
+.aqua-green {
+  background-color: #2dc071;
+}
+
+.lime-orange {
+  background-color: #e77c40;
+}
+
+.black {
+  background-color: #252b42;
+}
+
+
+/*document*/
+
+body {
+  font-family: "Montserrat";
+}
+.icon_helper {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+
+a {
+  color: #fff;
+  text-decoration: none !important;
+}
+
+p {
+  margin: 0;
+}
+
+.base-pallet {
+  color: #252b42;
+}
+
+.parent-pallet {
+  color: #737373;
+}
+
+
+.flex {
+  display: flex;
+}
+
+.curve-section {
+  border-radius: 50%;
+  cursor: pointer;
+  margin-right: 10px;
+  width: 30px;
+  height: 30px;
+  
+}
+
+
+.icon-btn-bordered {
+  border: 1px solid #e8e8e8 !important;
+  color: #252b42 !important;
+}
