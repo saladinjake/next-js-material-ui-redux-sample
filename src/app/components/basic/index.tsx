@@ -278,6 +278,15 @@ export const MenuItems = ({
   )
 }
 
+const links = [
+    { name: 'Home', url: '#', icon: null },
+    { name: 'Shop', url: '#', icon: <KeyboardArrowDownOutlinedIcon /> },
+    { name: 'About', url: '#', icon: null },
+    { name: 'Blog', url: '#', icon: null },
+    { name: 'Contact', url: '#', icon: null },
+    { name: 'Pages', url: '#', icon: null },
+  ]
+
 export const PublicLinks = () => {
   const buttonStyles = {
     display: 'block',
@@ -289,20 +298,13 @@ export const PublicLinks = () => {
     padding: '6px',
   }
 
-  const links = [
-    { name: 'Home', url: '#', icon: null },
-    { name: 'Shop', url: '#', icon: <KeyboardArrowDownOutlinedIcon /> },
-    { name: 'About', url: '#', icon: null },
-    { name: 'Blog', url: '#', icon: null },
-    { name: 'Contact', url: '#', icon: null },
-    { name: 'Pages', url: '#', icon: null },
-  ]
+  
   return (
     <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
       {links?.map(linker => {
         if (linker.icon !== null) {
           return (
-            <Button href={linker?.url} sx={buttonStyles} key={(new Date()).getMilliseconds()}>
+            <Button href={linker?.url} sx={buttonStyles} >
               <span
                 style={{
                   display: 'flex',
@@ -316,7 +318,7 @@ export const PublicLinks = () => {
           )
         }
         return (
-          <Button href={linker?.url} sx={buttonStyles} key={(new Date()).getMilliseconds()}>
+          <Button href={linker?.url} sx={buttonStyles}>
             {linker?.name}
           </Button>
         )
