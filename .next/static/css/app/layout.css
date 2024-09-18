@@ -1,0 +1,87 @@
+/*!*************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[11].oneOf[12].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[11].oneOf[12].use[3]!./src/app/css.css ***!
+  \*************************************************************************************************************************************************************************************************************************************************************/
+* {
+  margin: 0;
+  padding: 0;
+}
+
+/*colrs*/
+.navy-blue {
+  background-color: #23a6f0;
+}
+.aqua-green {
+  background-color: #2dc071;
+}
+
+.lime-orange {
+  background-color: #e77c40;
+}
+
+.black {
+  background-color: #252b42;
+}
+
+
+/*document*/
+
+body {
+  font-family: "Montserrat";
+}
+.icon_helper {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+
+a {
+  color: #fff;
+  text-decoration: none !important;
+}
+
+p {
+  margin: 0;
+}
+
+.base-pallet {
+  color: #252b42;
+}
+
+.parent-pallet {
+  color: #737373;
+}
+
+
+.flex {
+  display: flex;
+}
+
+.curve-section {
+  border-radius: 50%;
+  cursor: pointer;
+  margin-right: 10px;
+  width: 30px;
+  height: 30px;
+  
+}
+
+
+.icon-btn-bordered {
+  border: 1px solid #e8e8e8 !important;
+  color: #252b42 !important;
+}
+
+/*!*********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[11].oneOf[2].use[1]!./node_modules/next/dist/build/webpack/loaders/next-font-loader/index.js??ruleSet[1].rules[11].oneOf[2].use[2]!./node_modules/next/font/google/target.css?{"path":"src/app/theme/index.tsx","import":"Montserrat","arguments":[{"subsets":["latin"],"display":"swap","weight":["300","400","500","600","700","800","900"]}],"variableName":"fontFamily"} ***!
+  \*********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+@font-face {
+  font-family: '__Montserrat_Fallback_f4d50f';
+  src: local("Arial");
+  ascent-override:84.95%;
+  descent-override:22.03%;
+  line-gap-override:0.00%;
+  size-adjust:113.95%;
+}@font-face {font-family: '__Montserrat_Fallback_Fallback_f4d50f';src: local("Arial");ascent-override: 84.95%;descent-override: 22.03%;line-gap-override: 0.00%;size-adjust: 113.95%
+}.__className_f4d50f {font-family: '__Montserrat_Fallback_f4d50f', '__Montserrat_Fallback_Fallback_f4d50f';font-style: normal
+}
